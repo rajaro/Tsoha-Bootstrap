@@ -2,9 +2,13 @@
 
 Yleisiä linkkejä:
 
-* [Linkki sovellukseeni](https://www.cs.helsinki.fi)
+* [Linkki sovellukseeni](rajaro.users.cs.helsinki.fi/tsoha)
 * [Linkki dokumentaatiooni](https://www.github.com)
 
 ## Työn aihe
 
-Laita tähän aihekuvaus tai [linkki valmiiseen aiheeseen](http://advancedkittenry.github.io/suunnittelu_ja_tyoymparisto/aiheet/Pokemon-kanta.html) 
+Keikkahaun tarkoitus on luoda palvelu, jonka avulla käyttäjät pystyvät selailemaan ja
+etsimään tulevia live-esiintymisiä sekä festareita. Palveluun kirjautuneet käyttäjät pystyvät
+luomaan palveluun uusia keikkoja, sekä muokkaamaan että poistamaan itse lisäämiänsä
+keikkoja. Yhdellä keikalla voi esiintyä useampia yhtyeitä ja yhdellä yhtyeellä voi olla
+useampia esiintymisiä.

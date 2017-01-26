@@ -1,4 +1,4 @@
-
+-- Lisää CREATE TABLE lauseet tähän tiedostoon
 
 CREATE TABLE Kayttaja(
   id SERIAL PRIMARY KEY, 

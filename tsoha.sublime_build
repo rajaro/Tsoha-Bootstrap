@@ -1,0 +1,4 @@
+{
+  "cmd": ["bash", "~/Desktop/Koulu/Tsoha-Bootstrap/deploy.sh"],
+  "selector" : "source.shell"
+}
