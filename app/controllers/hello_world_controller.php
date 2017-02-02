@@ -1,14 +1,19 @@
 <?php
-
+require 'app/models/keikka.php';
   class HelloWorldController extends BaseController{
 
-    public static function index(){
+   /* public static function index(){
       // make-metodi renderöi app/views-kansiossa sijaitsevia tiedostoja
    	  echo 'Tämä on etusivu!';
-    }
+    }*/
 
     public static function sandbox(){
-  View::make('helloworld.html');
+        $primordial = Keikka::find(1);
+        $keikat = Keikka::all();
+        
+        Kint::dump($keikat);
+        Kint::dump($primordial);
+ 
     }
   public static function keikka_lista(){
     View::make('suunnitelmat/keikka_lista.html');

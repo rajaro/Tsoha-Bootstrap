@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block content %}
+  <h1>Keikkalistaus</h1>
+
+ <p>
+    <a href="{{base_path}}/keikka/new" class="btn btn-success">Lisää keikka</a>
+  </p>
+
+  <table class="table table-striped table-bordered">
+    <thead>
+      <tr>
+        <th>Yhtye</th>
+        <th>Paikka</th>
+        <th>Päivämäärä</th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      {% for keikka in keikat %}
+        <tr>
+          <td><a href="{{base_path}}/keikka/{{keikka.id}}">{{keikka.yhtye_id}}</td>
+          <td>{{keikka.esiintymispaikka}}</td>
+          <td>{{keikka.pvm}}</td>
+          <td><a class="btn btn-default btn-sm" href="{{base_path}}/keikka/{{keikka.id}}/edit">Muokkaa</a></td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}

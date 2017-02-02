@@ -5,7 +5,9 @@
         <group>
             <file>file:/home/jaro/Desktop/Koulu/Tsoha-Bootstrap/app/views/helloworld.html</file>
             <file>file:/home/jaro/Desktop/Koulu/Tsoha-Bootstrap/app/views/suunnitelmat/keikka_nayta.html</file>
+            <file>file:/home/jaro/Desktop/Koulu/Tsoha-Bootstrap/app/views/suunnitelmat/esiintymispaikka.html</file>
             <file>file:/home/jaro/Desktop/Koulu/Tsoha-Bootstrap/config/routes.php</file>
+            <file>file:/home/jaro/Desktop/Koulu/Tsoha-Bootstrap/app/models/keikka.php</file>
             <file>file:/home/jaro/Desktop/Koulu/Tsoha-Bootstrap/app/views/suunnitelmat/etusivu.html</file>
             <file>file:/home/jaro/Desktop/Koulu/Tsoha-Bootstrap/app/controllers/hello_world_controller.php</file>
             <file>file:/home/jaro/Desktop/Koulu/Tsoha-Bootstrap/app/views/suunnitelmat/keikka_lista.html</file>

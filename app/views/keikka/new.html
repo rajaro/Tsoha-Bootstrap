@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block content %}
+  <h1>Lisää keikka</h1>
+
+  <form method="post" action="{{base_path}}/keikka">
+    <div class="form-group">
+      <label>Yhtye</label>
+      <input name="yhtye" class="form-control" type="text">
+    </div>
+
+    <div class="form-group">
+      <label>Esiintymispaikka</label>
+      <input name="esiintymispaikka" class="form-control" type="text">
+    </div>
+
+    <div class="form-group">
+      <label>Päivämäärä</label>
+      <input name="pvm" class="form-control" type="text">
+    </div>
+
+
+    <div class="form-group">
+      <button type="submit" class="btn btn-primary">Lisää</button>
+    </div>
+  </form>
+{% endblock %}
