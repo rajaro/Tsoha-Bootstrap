@@ -4,7 +4,9 @@ Yleisiä linkkejä:
 
 * [Linkki sovellukseeni](rajaro.users.cs.helsinki.fi/tsoha)
 * [Linkki dokumentaatiooni](https://github.com/rajaro/Tsoha-Bootstrap/blob/master/doc/dokumentaatio.pdf)
-
+* [Linkki eri näkymiin] (rajaro.users.cs.helsinki.fi/tsoha/yhtyeet)
+(rajaro.users.cs.helsinki.fi/tsoha/yhtye/1)
+(rajaro.users.cs.helsinki.fi/tsoha/yhtye/new)
 ## Työn aihe
 
 Keikkahaun tarkoitus on luoda palvelu, jonka avulla käyttäjät pystyvät selailemaan ja
