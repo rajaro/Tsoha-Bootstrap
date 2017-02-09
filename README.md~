@@ -2,7 +2,7 @@
 
 Yleisiä linkkejä:
 
-[Linkki sovellukseeni](rajaro.users.cs.helsinki.fi/tsoha)
+[Linkki sovellukseeni](http://rajaro.users.cs.helsinki.fi/tsoha)
 [Linkki dokumentaatiooni](https://github.com/rajaro/Tsoha-Bootstrap/blob/master/doc/dokumentaatio.pdf)
 [Linkki eri näkymiin](rajaro.users.cs.helsinki.fi/tsoha/yhtyeet)
 [Esimerkkiyhte](rajaro.users.cs.helsinki.fi/tsoha/yhtye/14)
