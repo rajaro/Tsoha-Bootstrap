@@ -6,12 +6,11 @@
  * and open the template in the editor.
  */
 
-class Yhtye extends BaseModel{
+class Kayttaja extends BaseModel {
     
-    
-    public $id, $nimi, $kuvaus;
-    
-    public function __construct($attributes){
+    public $id, $nimi, $password;
+            
+        public function __construct($attributes){
         parent::__construct($attributes);
         $this->validators = array('validate_name');
     }
@@ -29,43 +28,60 @@ class Yhtye extends BaseModel{
         return $errors;
     }
     
-    public static function all() {
-        $query = DB::connection()->prepare('SELECT * FROM Yhtye');
-        $query->execute();
-        $rows = $query->fetchAll();
-        $yhtyeet = array();
+    public static function authenticate($nimi, $password) {
+        $query = DB::connection()->prepare('SELECT * FROM Kayttaja WHERE nimi = :nimi AND password = :password LIMIT 1');
+        $query->execute(array('nimi' => $nimi, 'password' => $password));
         
-        foreach($rows as $row) {
-            $yhtyeet[] = new Yhtye(array(
+        $row = $query->fetch();
+        if ($row) {
+            $kayttaja = new Kayttaja(array(
                 'id' => $row['id'],
                 'nimi' => $row['nimi'],
-                'kuvaus' => $row['kuvaus'],
+                'password' => $row['password']
+            ));
+            return $kayttaja;
+        } else {
+            return null;
+        }
+    }
+    
+    public static function all() {
+        $query = DB::connection()->prepare('SELECT * FROM Kayttaja');
+        $query->execute();
+        $rows = $query->fetchAll();
+        $kayttajat = array();
+        
+        foreach($rows as $row) {
+            $kayttajat[] = new Kayttaja(array(
+                'id' => $row['id'],
+                'nimi' => $row['nimi'],
+                'password' => $row['password']
             ));
         }
-        return $yhtyeet;
+        return $kayttajat;
     }
     
     public static function find($id){
-        $query = DB::connection()->prepare('SELECT * FROM Yhtye WHERE id = :id LIMIT 1');
+        $query = DB::connection()->prepare('SELECT * FROM Kayttaja WHERE id = :id LIMIT 1');
         $query->execute(array('id' => $id));
         $row = $query->fetch();
         
         if ($row) {
-            $yhtye = new Yhtye(array(
+            $kayttaja = new Yhtye(array(
                 'id' => $row['id'],
                 'nimi' => $row['nimi'],
-                'kuvaus' => $row['kuvaus'],
+                'password' => $row['password'],
             ));
-            return $yhtye;
+            return $kayttaja;
         }
         return null;
     }
     
        public function save() {
-        $query = DB::connection()->prepare('INSERT INTO Yhtye (nimi, kuvaus) VALUES (:nimi, :kuvaus) RETURNING id');
+        $query = DB::connection()->prepare('INSERT INTO Kayttaja (nimi, password) VALUES (:nimi, :password) RETURNING id');
         $query->execute(array(
             'nimi' => $this->nimi,
-            'kuvaus' => $this->kuvaus,
+            'password' => $this->password,
         )); 
         
         $row = $query->fetch();
@@ -73,11 +89,11 @@ class Yhtye extends BaseModel{
     }
     
     public function update() {
-            $query = DB::connection()->prepare('UPDATE Yhtye SET nimi = :nimi, kuvaus = :kuvaus where id = :id RETURNING id');
+            $query = DB::connection()->prepare('UPDATE Kayttaja SET nimi = :nimi, password = :password where id = :id RETURNING id');
             $query->execute(array(
             'id' => $this->id,
             'nimi' => $this->nimi,
-            'kuvaus' => $this->kuvaus,
+            'password' => $this->password,
         )); 
         
         $row = $query->fetch();
@@ -85,11 +101,10 @@ class Yhtye extends BaseModel{
     }
     
     public function delete() {
-        $query = DB::connection()->prepare('DELETE FROM Yhtye WHERE id = :id');
+        $query = DB::connection()->prepare('DELETE FROM Kayttaja WHERE id = :id');
             $query->execute(array(
             'id' => $this->id,    
         )); 
         
     }
-    
 }
