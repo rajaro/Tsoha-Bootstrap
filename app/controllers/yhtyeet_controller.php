@@ -27,6 +27,7 @@ class YhtyeController extends BaseController{
     public static function store() {
         $params = $_POST;
         
+        
         $yhtye = new Yhtye(array(
             'nimi' =>  $params['nimi'],
             'kuvaus' => $params['kuvaus'],

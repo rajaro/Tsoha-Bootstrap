@@ -10,26 +10,40 @@ class KeikkaController extends BaseController{
     
     public static function index() {
         $keikat = Keikka::all();
-        
-        View::make('keikka/index.html', array('keikat' => $keikat));
+        $yhtyeet = Yhtye::all();
+        View::make('keikka/index.html', array('keikat' => $keikat, 'yhtyeet' => $yhtyeet));
     
     }
     
     public static function keikka_nayta($id) {
-        
+        $keikka = Keikka::find($id);
+        $yhtye = Yhtye::find($keikka->yhtye_id);
+        View::make('keikka/keikka_show.html', array('keikka' => $keikka, 'yhtye' => $yhtye));
     }
     
     public static function keikka_new() {
-        View::make('keikka/new.html');
+        $yhtyeet = Yhtye::all();
+        View::make('keikka/new.html', array('yhtyeet' => $yhtyeet));
+    }
+    
+    public static function destroy($id) {
+        $keikka = new Keikka(array('id' => $id));
+        $keikka->delete();
+        Redirect::to('/keikka', array('message' => 'Yhtye on poistettu onnistuneesti!'));
+        
     }
     
     public static function store() {
         $params = $_POST;
         
+        $yhtyeid = $params['yhtye'];
+        $yhtye = Yhtye::find($yhtyeid);
+        
         $keikka = new Keikka(array(
-            'yhtye' =>  $params['yhtye'],
+            'yhtye_id' =>  $yhtyeid,
             'esiintymispaikka' => $params['esiintymispaikka'],
-            'pvm' => $params['pvm']
+            'pvm' => $params['pvm'],
+            'hinta' => $params['hinta']
         ));
         
         $keikka->save();
@@ -37,17 +51,7 @@ class KeikkaController extends BaseController{
 
     }
     
-    public function save() {
-        $query = DB::connection()->prepare('INSERT INTO Keikka (yhtye, esiintymispaikka, pvm) VALUES (:nimi, :esiintymispaikka, :pvm) RETURNING id');
-        $query->execute(array(
-            'yhtye' => $this.yhtye,
-            'esiintymispaikka' => $this.esiintymispaikka,
-            'pvm' => $this.pvm
-        )); 
-        
-        $row = $query.fetch();
-        $this->id = $row['id'];
-    }
+    
     
     
 }

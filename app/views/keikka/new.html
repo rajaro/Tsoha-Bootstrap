@@ -3,10 +3,18 @@
   <h1>Lisää keikka</h1>
 
   <form method="post" action="{{base_path}}/keikka">
-    <div class="form-group">
-      <label>Yhtye</label>
-      <input name="yhtye" class="form-control" type="text">
-    </div>
+    
+
+<div class="form-group">
+  <label>Yhtye</label>
+  <select class="form-control" name="yhtye">
+    {% for yhtye in yhtyeet %}
+      <option value="{{yhtye.id}}">{{yhtye.nimi}}</option>
+    {% endfor %}
+  </select>
+</div>
+
+
 
     <div class="form-group">
       <label>Esiintymispaikka</label>
@@ -18,6 +26,10 @@
       <input name="pvm" class="form-control" type="text">
     </div>
 
+    <div class="form-group">
+      <label>Hinta</label>
+      <input name="hinta" class="form-control" type="text">
+    </div>
 
     <div class="form-group">
       <button type="submit" class="btn btn-primary">Lisää</button>

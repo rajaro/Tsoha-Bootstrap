@@ -25,4 +25,10 @@ class KayttajaController extends BaseController {
       Redirect::to('/', array('message' => 'Tervetuloa takaisin ' . $kayttaja->nimi . '!'));
     }
   }
+  
+  public static function logout(){
+    $_SESSION['kayttaja'] = null;
+    Redirect::to('/login', array('message' => 'Olet kirjautunut ulos!'));
+  }
+  
 }

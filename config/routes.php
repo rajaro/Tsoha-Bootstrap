@@ -8,6 +8,8 @@
     HelloWorldController::sandbox();
   });
   
+
+  
   $routes->get('/yhtyeet', function() {
       YhtyeController::yhtyeet();
   });
@@ -40,10 +42,17 @@ $routes->post('/yhtye/:id/delete', function($id) {
    YhtyeController::destroy($id); 
 });
 
+$routes->post('/keikka/:id/delete', function($id) {
+    KeikkaController::destroy($id);
+});
+
   $routes->get('/keikka', function() {
   KeikkaController::index();
 });
 
+  $routes->get('/keikka/new', function() {
+    KeikkaController::keikka_new();
+});
 
 
 $routes->get('/keikka/:id', function($id) {
@@ -54,9 +63,7 @@ $routes->get('/esiintymispaikka', function() {
     HelloWorldController::esiintymispaikka();
 });
 
-$routes->get('/keikka/new', function() {
-    KeikkaController::keikka_new();
-});
+
 
 $routes->post('/keikka', function(){
     KeikkaController::store();
@@ -73,5 +80,9 @@ $routes->get('/login', function(){
 $routes->post('/login', function(){
   // Kirjautumisen käsittely
   KayttajaController::handle_login();
+});
+
+$routes->post('/logout', function(){
+  KayttajaController::logout();
 });
 

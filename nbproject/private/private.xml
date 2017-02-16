@@ -4,24 +4,29 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/home/jaro/Desktop/Koulu/Tsoha-Bootstrap/app/views/suunnitelmat/keikka_nayta.html</file>
-            <file>file:/home/jaro/Desktop/Koulu/Tsoha-Bootstrap/app/views/suunnitelmat/esiintymispaikka.html</file>
-            <file>file:/home/jaro/Desktop/Koulu/Tsoha-Bootstrap/app/views/yhtye/new.html</file>
-            <file>file:/home/jaro/Desktop/Koulu/Tsoha-Bootstrap/app/views/keikka/index.html</file>
             <file>file:/home/jaro/Desktop/Koulu/Tsoha-Bootstrap/app/views/home.html</file>
             <file>file:/home/jaro/Desktop/Koulu/Tsoha-Bootstrap/app/models/keikka.php</file>
+            <file>file:/home/jaro/Desktop/Koulu/Tsoha-Bootstrap/app/models/kayttaja.php</file>
             <file>file:/home/jaro/Desktop/Koulu/Tsoha-Bootstrap/app/controllers/keikat_controller.php</file>
-            <file>file:/home/jaro/Desktop/Koulu/Tsoha-Bootstrap/app/views/base.html</file>
-            <file>file:/home/jaro/Desktop/Koulu/Tsoha-Bootstrap/composer.json</file>
-            <file>file:/home/jaro/Desktop/Koulu/Tsoha-Bootstrap/app/views/yhtye/yhtyeet.html</file>
             <file>file:/home/jaro/Desktop/Koulu/Tsoha-Bootstrap/app/views/yhtye/yhtye_show.html</file>
-            <file>file:/home/jaro/Desktop/Koulu/Tsoha-Bootstrap/app/views/helloworld.html</file>
+            <file>file:/home/jaro/Desktop/Koulu/Tsoha-Bootstrap/app/views/kayttaja/login.html</file>
             <file>file:/home/jaro/Desktop/Koulu/Tsoha-Bootstrap/app/models/yhtye.php</file>
             <file>file:/home/jaro/Desktop/Koulu/Tsoha-Bootstrap/config/routes.php</file>
             <file>file:/home/jaro/Desktop/Koulu/Tsoha-Bootstrap/app/views/suunnitelmat/etusivu.html</file>
+            <file>file:/home/jaro/Desktop/Koulu/Tsoha-Bootstrap/app/controllers/kayttajat_controller.php</file>
             <file>file:/home/jaro/Desktop/Koulu/Tsoha-Bootstrap/app/controllers/hello_world_controller.php</file>
-            <file>file:/home/jaro/Desktop/Koulu/Tsoha-Bootstrap/app/views/suunnitelmat/keikka_lista.html</file>
             <file>file:/home/jaro/Desktop/Koulu/Tsoha-Bootstrap/app/views/keikka/new.html</file>
             <file>file:/home/jaro/Desktop/Koulu/Tsoha-Bootstrap/deploy.sh</file>
+            <file>file:/home/jaro/Desktop/Koulu/Tsoha-Bootstrap/app/views/suunnitelmat/esiintymispaikka.html</file>
+            <file>file:/home/jaro/Desktop/Koulu/Tsoha-Bootstrap/app/views/yhtye/new.html</file>
+            <file>file:/home/jaro/Desktop/Koulu/Tsoha-Bootstrap/app/views/keikka/index.html</file>
+            <file>file:/home/jaro/Desktop/Koulu/Tsoha-Bootstrap/lib/base_controller.php</file>
+            <file>file:/home/jaro/Desktop/Koulu/Tsoha-Bootstrap/lib/base_model.php</file>
+            <file>file:/home/jaro/Desktop/Koulu/Tsoha-Bootstrap/app/views/base.html</file>
+            <file>file:/home/jaro/Desktop/Koulu/Tsoha-Bootstrap/composer.json</file>
+            <file>file:/home/jaro/Desktop/Koulu/Tsoha-Bootstrap/app/views/yhtye/yhtyeet.html</file>
+            <file>file:/home/jaro/Desktop/Koulu/Tsoha-Bootstrap/app/views/helloworld.html</file>
+            <file>file:/home/jaro/Desktop/Koulu/Tsoha-Bootstrap/app/views/suunnitelmat/keikka_lista.html</file>
             <file>file:/home/jaro/Desktop/Koulu/Tsoha-Bootstrap/app/views/yhtye/edit.html</file>
             <file>file:/home/jaro/Desktop/Koulu/Tsoha-Bootstrap/app/controllers/yhtyeet_controller.php</file>
         </group>
