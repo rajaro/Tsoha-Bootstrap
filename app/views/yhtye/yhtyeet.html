@@ -10,6 +10,9 @@
       </ul>
     </div>
   {% endif %}
+  
+     <div class="success">{{message}}</div>
+     
  <p>
     <a href="{{base_path}}/yhtye/new" class="btn btn-success">Lisää yhtye</a>
   </p>
@@ -27,6 +30,15 @@
         {% for yhtye in yhtyeet %}
       <tr>
           <td><a href="{{base_path}}/yhtye/{{yhtye.id}}">{{yhtye.nimi}}</td>
+          {% for keikka in keikat %}
+          {% if keikka.yhtye_id == yhtye.id %}
+          {% for paikka in paikat %}
+          {%if paikka.id==keikka.paikka_id %}
+          <td><a href="{{base_path}}/keikka/{{keikka.id}}">{{paikka.nimi}} </td>
+          {% endif %}
+          {% endfor %}
+          {% endif %}
+          {% endfor %}
       </tr>
       {% endfor %}
     </tbody>

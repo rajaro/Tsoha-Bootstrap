@@ -11,7 +11,7 @@
       <tr>
         <th>Yhtye</th>
         <th>Paikka</th>
-        <th>Hinta</th>
+        <th>Hinta (€)</th>
         <th>Päivämäärä</th>
         <th></th>
       </tr>
@@ -25,10 +25,23 @@
           <td><a href="{{base_path}}/yhtye/{{keikka.yhtye_id}}">{{yhtye.nimi}}</td>
           {% endif %}
           {% endfor %}
-          <td>{{keikka.esiintymispaikka}}</td>
+          <td> {% for paikka in paikat %}
+               {% if paikka.id==keikka.paikka_id %}
+              {{paikka.nimi}}
+              {% endif %}
+              {% endfor %}
+          </td>
           <td>{{keikka.hinta}}</td>
           <td>{{keikka.pvm}}</td>
-          <td><a class="btn btn-default btn-sm" href="{{base_path}}/keikka/{{keikka.id}}/edit">Muokkaa</a></td>
+          {% if user_logged_in %}
+          <td><a class="btn btn-default btn-sm" href="{{base_path}}/keikka/{{keikka.id}}">Muokkaa</a>
+              
+          <form method="post" action="{{base_path}}/keikka/{{keikka.id}}/delete"> 
+              <div class="form-group">
+      <button type="submit" class="btn btn-primary">Poista</button>
+    </div></td>
+           {% endif %}
+              </form>
         </tr>
       {% endfor %}
     </tbody>

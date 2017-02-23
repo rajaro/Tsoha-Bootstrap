@@ -33,18 +33,19 @@ $routes->post('/yhtye', function(){
 $routes->get('/yhtye/:id/edit', function($id) {
     YhtyeController::yhtye_nayta($id);
 });
+$routes->post('/yhtye/:id/delete', function($id) {
+   YhtyeController::destroy($id); 
+});
 
 $routes->post('/yhtye/:id', function($id) {
     YhtyeController::update($id);
 });
 
-$routes->post('/yhtye/:id/delete', function($id) {
-   YhtyeController::destroy($id); 
-});
-
 $routes->post('/keikka/:id/delete', function($id) {
     KeikkaController::destroy($id);
 });
+
+
 
   $routes->get('/keikka', function() {
   KeikkaController::index();
@@ -60,10 +61,16 @@ $routes->get('/keikka/:id', function($id) {
 });
 
 $routes->get('/esiintymispaikka', function() {
-    HelloWorldController::esiintymispaikka();
+    EsiintymispaikkaController::paikat();
 });
 
+$routes->post('/esiintymispaikka', function() {
+    EsiintymispaikkaController::store();
+});
 
+$routes->get('/esiintymispaikka/new', function() {
+    EsiintymispaikkaController::paikka_new();
+});
 
 $routes->post('/keikka', function(){
     KeikkaController::store();

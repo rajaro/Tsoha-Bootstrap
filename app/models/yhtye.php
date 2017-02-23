@@ -26,6 +26,10 @@ class Yhtye extends BaseModel{
             $errors[] = 'Nimen tulee olla vähintään 2 merkkiä pitkä';
         }
         
+        if (strlen($this->nimi) > 50) {
+            $errors[] = 'Nimen tulee olla alle 50 merkkiä pitkä';
+        }
+        
         return $errors;
     }
     
@@ -59,6 +63,30 @@ class Yhtye extends BaseModel{
             return $yhtye;
         }
         return null;
+    }
+    
+    public static function findPaikka($id){
+        
+        $query = DB::connection()->prepare('SELECT * FROM Keikka WHERE yhtye_id = :id LIMIT 1');
+        $query->execute(array('id' => $id));
+        $row = $query->fetch();
+        if ($row){
+            $quer = DB::connection()->prepare('SELECT * FROM Esiintymispaikka WHERE id = :paikka_id LIMIT 1');
+            $paikkaid = $row['paikka_id'];
+            $quer->execute(array('paikka_id' => $paikkaid));
+            $row1 = $quer->fetch();
+            if ($row1) {
+                $paikka = new Esiintymispaikka(array(
+                    'id' => $row1['id'],
+                    'nimi' => $row1['nimi'],
+                    'osoite' => $row1['osoite']
+                ));
+                return $paikka;
+            }
+        }
+        return null;
+
+        
     }
     
        public function save() {

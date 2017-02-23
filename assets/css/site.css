@@ -7,4 +7,30 @@
 .navbar .container-fluid{
   max-width: 1200px;
   margin: 0px auto;
+  background-color: black;
 }
+
+h1 {
+    color: black;
+}
+
+
+body {
+    background-color: #adadad;
+}
+
+table {
+    background-color:black;
+    color: black;
+}
+
+th {
+    color: white;
+}
+
+tr {
+    color:red;
+}
+
+
+

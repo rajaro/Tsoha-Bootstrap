@@ -9,11 +9,9 @@
   
   <h3>Tulevat keikat</h3>
   <ul>
-      <li>ei</li>
-      <li>vielä</li>
-      <li>toteutettu</li>
+      <li>{{paikka.nimi}}</li>
   </ul>
-  
+  {% if user_logged_in %}
    <form method="post" action="{{base_path}}/yhtye/{{yhtye.id}}">
     <div class="form-group">
       <label>Uusi nimi</label>
@@ -33,5 +31,6 @@
   <form method="post" action="{{base_path}}/yhtye/{{yhtye.id}}/delete" style="display: inline-block;">
   <button type="submit" class="btn btn-danger">Poista</button>
 </form>
+  {% endif %}
   
 {% endblock %}

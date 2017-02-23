@@ -1,6 +1,9 @@
 {% extends "base.html" %}
 {% block content %}
-<h1>Esiintyjä: {{yhtye.nimi}}</h1>
+<h1>Esiintyjä: {% if yhtye.id==keikka.yhtye_id %}
+        {{yhtye.nimi}}
+        {% endif %}
+</h1>
 
   <h2>Kuvaus</h2>
 

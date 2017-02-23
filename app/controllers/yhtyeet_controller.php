@@ -5,13 +5,17 @@ class YhtyeController extends BaseController{
     
     public static function yhtyeet() {
         $yhtyeet = Yhtye::all();
-        View::make('yhtye/yhtyeet.html', array('yhtyeet' => $yhtyeet));
+        $keikat = Keikka::all();
+        $paikat = Esiintymispaikka::all();
+        View::make('yhtye/yhtyeet.html', array('yhtyeet' => $yhtyeet, 'keikat' => $keikat
+                , 'paikat' => $paikat));
     
     }
     
     public static function yhtye_nayta($id) {
         $yhtye = Yhtye::find($id);
-        View::make('yhtye/yhtye_show.html', array('yhtye' => $yhtye));
+        $paikka = Yhtye::findPaikka($id);
+        View::make('yhtye/yhtye_show.html', array('yhtye' => $yhtye, 'paikka' => $paikka));
     }
     
     public static function yhtye_new() {
