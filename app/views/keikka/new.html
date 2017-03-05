@@ -7,7 +7,7 @@
 
 <div class="form-group">
   <label>Yhtye</label>
-  <select class="form-control" name="yhtye_id" multiple="">
+  <select class="form-control" name="yhtye_id[]" multiple="">
     {% for yhtye in yhtyeet %}
       <option value="{{yhtye.id}}">{{yhtye.nimi}}</option>
     {% endfor %}

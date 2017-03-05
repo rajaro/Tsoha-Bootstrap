@@ -12,16 +12,17 @@
   {% endif %}
   
      <div class="success">{{message}}</div>
-     
+     {% if user_logged_in %}
  <p>
     <a href="{{base_path}}/yhtye/new" class="btn btn-success">Lisää yhtye</a>
   </p>
+  {% endif %}
 
   <table class="table table-striped table-bordered">
     <thead>
       <tr>
         <th>Nimi</th>
-        <th>Tulevat keikat:</th>
+        <th>Kuvaus:</th>
         <th></th>
       </tr>
     </thead>
@@ -30,15 +31,9 @@
         {% for yhtye in yhtyeet %}
       <tr>
           <td><a href="{{base_path}}/yhtye/{{yhtye.id}}">{{yhtye.nimi}}</td>
-          {% for keikka in keikat %}
-          {% if keikka.yhtye_id == yhtye.id %}
-          {% for paikka in paikat %}
-          {%if paikka.id==keikka.paikka_id %}
-          <td><a href="{{base_path}}/keikka/{{keikka.id}}">{{paikka.nimi}} </td>
-          {% endif %}
-          {% endfor %}
-          {% endif %}
-          {% endfor %}
+
+          <td> <p> {{yhtye.kuvaus}} </p> </td>
+
       </tr>
       {% endfor %}
     </tbody>

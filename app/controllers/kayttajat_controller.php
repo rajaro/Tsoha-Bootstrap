@@ -12,6 +12,7 @@ class KayttajaController extends BaseController {
       View::make('kayttaja/login.html');
   }
   
+  
   public static function handle_login(){
     $params = $_POST;
 
@@ -26,9 +27,25 @@ class KayttajaController extends BaseController {
     }
   }
   
+  public static function rekisterointi() {
+      View::make('/kayttaja/rekisterointi.html');
+  }
+  
   public static function logout(){
     $_SESSION['kayttaja'] = null;
     Redirect::to('/login', array('message' => 'Olet kirjautunut ulos!'));
   }
   
+  public static function store(){
+       $params = $_POST;
+              
+        $kayttaja = new Kayttaja(array(
+            'nimi' => $params['nimi'],
+            'password' => $params['password'],
+        ));
+               
+        $kayttaja->save();
+        Redirect::to('/keikka', array('message' => 'Rekisteröityminen onnistui!'));
+
+  }
 }

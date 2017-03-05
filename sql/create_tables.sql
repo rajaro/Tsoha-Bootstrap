@@ -30,4 +30,10 @@ CREATE TABLE Keikka(
   paivamaara DATE
 );
 
+CREATE TABLE BandienKeikat(
+  id SERIAL PRIMARY KEY,
+  yhtye_id INTEGER REFERENCES Yhtye(id),
+  keikka_id INTEGER REFERENCES Keikka(id)
+);
+
 

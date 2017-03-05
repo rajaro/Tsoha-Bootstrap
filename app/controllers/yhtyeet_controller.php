@@ -13,9 +13,22 @@ class YhtyeController extends BaseController{
     }
     
     public static function yhtye_nayta($id) {
+        $paikat = Esiintymispaikka::all();
         $yhtye = Yhtye::find($id);
-        $paikka = Yhtye::findPaikka($id);
-        View::make('yhtye/yhtye_show.html', array('yhtye' => $yhtye, 'paikka' => $paikka));
+        $keikat = array();
+        $keikkaids = Yhtye::findKeikat($id);
+        if ($keikkaids) {
+        foreach ($keikkaids as $keikkaid) {
+            $keikka = Keikka::find($keikkaid);
+            $keikat[] = new Keikka(array(
+                'id' => $keikka->id,
+                'pvm' => $keikka->pvm,
+                'hinta' => $keikka->hinta,
+                'paikka_id' => $keikka->paikka_id
+            ));
+        }
+        }
+        View::make('yhtye/yhtye_show.html', array('yhtye' => $yhtye, 'keikat' => $keikat, 'paikat' => $paikat));
     }
     
     public static function yhtye_new() {

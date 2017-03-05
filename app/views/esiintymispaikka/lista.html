@@ -12,16 +12,18 @@
   {% endif %}
   
      <div class="success">{{message}}</div>
-     
+     {% if user_logged_in %}
  <p>
     <a href="{{base_path}}/esiintymispaikka/new" class="btn btn-success">Lisää esiintymispaikka</a>
   </p>
+  {% endif %}
 
   <table class="table table-striped table-bordered">
     <thead>
       <tr>
         <th>Nimi</th>
         <th>Osoite</th>
+        <th>Poista</th>
         <th></th>
       </tr>
     </thead>
@@ -31,6 +33,9 @@
       <tr>
           <td>{{paikka.nimi}}</td>
           <td>{{paikka.osoite}}</td>
+          <td><form method="post" action="{{base_path}}/esiintymispaikka/{{paikka.id}}/delete" style="display: inline-block;">
+              <button type="submit" class="btn btn-danger">Poista</button>
+              </form></td>
       </tr>
       {% endfor %}
     </tbody>

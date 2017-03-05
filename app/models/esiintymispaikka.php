@@ -19,7 +19,7 @@ class Esiintymispaikka extends BaseModel{
         $query = DB::connection()->prepare('SELECT * FROM Esiintymispaikka');
         $query->execute();
         $rows = $query->fetchAll();
-        $paikka = array();
+        $paikat = array();
         
         foreach($rows as $row) {
             $paikat[] = new Esiintymispaikka(array(

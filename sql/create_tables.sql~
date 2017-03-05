@@ -1,4 +1,4 @@
--- Lisää CREATE TABLE lauseet tähän tiedostoon
+
 
 CREATE TABLE Kayttaja(
   id SERIAL PRIMARY KEY, 
@@ -28,6 +28,12 @@ CREATE TABLE Keikka(
   hinta DECIMAL,
   description varchar(400),
   paivamaara DATE
+);
+
+CREATE TABLE BandienKeikat(
+  id SERIAL PRIMARY KEY,
+  yhtye_id INTEGER REFERENCES Yhtye(id),
+  keikka_id INTEGER REFERENCES Keikka(id)
 );
 
 

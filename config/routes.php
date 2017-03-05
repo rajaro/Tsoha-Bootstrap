@@ -45,7 +45,9 @@ $routes->post('/keikka/:id/delete', function($id) {
     KeikkaController::destroy($id);
 });
 
-
+$routes->post('/keikka/:id', function($id) {
+    KeikkaController::update($id);
+});
 
   $routes->get('/keikka', function() {
   KeikkaController::index();
@@ -72,6 +74,10 @@ $routes->get('/esiintymispaikka/new', function() {
     EsiintymispaikkaController::paikka_new();
 });
 
+$routes->post('/esiintymispaikka/:id/delete', function($id) {
+    EsiintymispaikkaController::destroy($id);
+});
+
 $routes->post('/keikka', function(){
     KeikkaController::store();
 });
@@ -92,4 +98,14 @@ $routes->post('/login', function(){
 $routes->post('/logout', function(){
   KayttajaController::logout();
 });
+
+$routes->post('/rekisterointi', function() {
+    KayttajaController::store();
+});
+    
+$routes->get('/rekisterointi', function() {
+    KayttajaController::rekisterointi();
+});
+    
+
 

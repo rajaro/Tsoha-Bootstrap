@@ -13,7 +13,7 @@ class Yhtye extends BaseModel{
     
     public function __construct($attributes){
         parent::__construct($attributes);
-        $this->validators = array('validate_name');
+        $this->validators = array('validate_name', 'validate_kuvaus');
     }
     
     public function validate_name(){
@@ -30,6 +30,14 @@ class Yhtye extends BaseModel{
             $errors[] = 'Nimen tulee olla alle 50 merkkiä pitkä';
         }
         
+        return $errors;
+    }
+    
+    public function validate_kuvaus() {
+        $errors = array();
+        if (strlen($this->kuvaus) > 400) {
+            $errors[] = 'Kuvauksen tulee olla max. 400 merkkiä pitkä';
+        }
         return $errors;
     }
     
@@ -65,8 +73,38 @@ class Yhtye extends BaseModel{
         return null;
     }
     
+    public static function findKeikat($id) {
+        $query = DB::connection()->prepare('SELECT keikka_id FROM BandienKeikat WHERE yhtye_id = :id');
+        $query->execute(array('id' => $id));
+        $rows = $query->fetchAll();
+        $keikkaids = array();
+        if ($rows) {
+        foreach($rows as $row) {
+            $keikkaids[] = $row['keikka_id'];
+        }
+        return $keikkaids;
+        } 
+        return null;
+    }
+    
     public static function findPaikka($id){
-        
+        /*
+        $query = DB::connection()->prepare('SELECT keikka_id FROM BandienKeikat WHERE yhtye_id = :id');
+        $query->execute(array('id' => $id));
+        $rows = $query->fetchAll();
+        $keikkaids = array();
+        $ids = join("','",$keikkaids);
+        $statement = "SELECT * FROM Keikka WHERE id IN ($ids)";
+        $query1 = DB::connection()->prepare($statement);
+        $query1->execute();        
+        $rows1 = $query1->fetchAll(); 
+        if ($rows1) {
+        foreach($rows1 as $row) {
+            $keikat[] = $row['paikka_id'];
+        }
+        return $keikat;
+        }
+        */
         $query = DB::connection()->prepare('SELECT * FROM Keikka WHERE yhtye_id = :id LIMIT 1');
         $query->execute(array('id' => $id));
         $row = $query->fetch();

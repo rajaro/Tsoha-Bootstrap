@@ -1,27 +1,34 @@
 {% extends "base.html" %}
 {% block content %}
-<h1>Esiintyjä: {% if yhtye.id==keikka.yhtye_id %}
-        {{yhtye.nimi}}
-        {% endif %}
-</h1>
+<h1>Esiintyjät:</h1>
+    <ul>
+    {% for yhtye in yhtyeet %}
+    <li> {{yhtye.nimi}} </li>
+        {% endfor %}
+    </ul>
 
-  <h2>Kuvaus</h2>
 
-  <p>{{keikka.kuvaus}}</p>
+    {% for paikka in paikat %}
+    {% if paikka.id == keikka.paikka_id %}
+  <h3>Paikka: {{paikka.nimi}}</h3>
+  {% endif %}
+  {% endfor %}
   <h3>Päivämäärä: {{keikka.pvm}}</h3>
   <h3>Hinta: {{keikka.hinta}}</h3>
 
-  
+  {% if user_logged_in %}
    <form method="post" action="{{base_path}}/keikka/{{keikka.id}}">
-    <div class="form-group">
-      <label>Uusi nimi</label>
-      <input name="nimi" class="form-control" type="text">
-    </div>
+
 
     <div class="form-group">
-      <label>Uusi kuvaus</label>
-      <input name="kuvaus" class="form-control" type="text">
+      <label>Uusi päivämäärä</label>
+      <input name="pvm" class="form-control" type="text">
     </div>
+       
+     <div class="form-group">
+         <label>Uusi hinta</label>
+         <input name="hinta" class="form-control" type="number">
+     </div>
 
 
     <div class="form-group">
@@ -31,5 +38,6 @@
   <form method="post" action="{{base_path}}/keikka/{{keikka.id}}/delete" style="display: inline-block;">
   <button type="submit" class="btn btn-danger">Poista</button>
 </form>
+  {% endif %}
   
 {% endblock %}

@@ -3,13 +3,18 @@
 <h1>Nimi: {{ yhtye.nimi }}</h1>
 
   <h2>Kuvaus</h2>
-
   <p>{{yhtye.kuvaus}}</p>
-
+  
   
   <h3>Tulevat keikat</h3>
   <ul>
-      <li>{{paikka.nimi}}</li>
+      {% for keikka in keikat %}
+      {% for paikka in paikat %}
+      {% if paikka.id == keikka.paikka_id %}
+      <li><a href = "{{base_path}}/keikka/{{keikka.id}}">{{paikka.nimi}} ({{paikka.osoite}})</a></li>
+      {% endif %}
+      {% endfor %}
+      {% endfor %}
   </ul>
   {% if user_logged_in %}
    <form method="post" action="{{base_path}}/yhtye/{{yhtye.id}}">
@@ -32,5 +37,5 @@
   <button type="submit" class="btn btn-danger">Poista</button>
 </form>
   {% endif %}
-  
+
 {% endblock %}
