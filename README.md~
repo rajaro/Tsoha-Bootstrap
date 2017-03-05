@@ -4,9 +4,9 @@ Yleisiä linkkejä:
 
 [Linkki sovellukseeni](http://rajaro.users.cs.helsinki.fi/tsoha)
 [Linkki dokumentaatiooni](https://github.com/rajaro/Tsoha-Bootstrap/blob/master/doc/dokumentaatio.pdf)
-[Linkki eri näkymiin](rajaro.users.cs.helsinki.fi/tsoha/yhtyeet)
-[Esimerkkiyhte](rajaro.users.cs.helsinki.fi/tsoha/yhtye/14)
-[Uuden yhtyeen luonti](rajaro.users.cs.helsinki.fi/tsoha/yhtye/new)
+[Linkki eri näkymiin](http://rajaro.users.cs.helsinki.fi/tsoha/yhtyeet)
+[Esimerkkiyhte](http://rajaro.users.cs.helsinki.fi/tsoha/yhtye/14)
+[Uuden yhtyeen luonti](http://rajaro.users.cs.helsinki.fi/tsoha/yhtye/new)
 
 ## Työn aihe
 
